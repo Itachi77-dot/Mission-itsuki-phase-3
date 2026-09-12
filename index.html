@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ITSUKI ANIMES — Discover Anime</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="bg-glow glow-one"></div>
+  <div class="bg-glow glow-two"></div>
+
+
+  <!-- =========================
+       SEARCH OVERLAY
+  ========================= -->
+
+  <div class="search-overlay" id="search-overlay">
+
+    <div class="search-container">
+
+      <button
+        class="close-search"
+        id="close-search"
+        type="button"
+        aria-label="Close Search"
+      >
+        ✕
+      </button>
+
+      <p class="section-tag">
+        FIND YOUR NEXT FAVORITE
+      </p>
+
+      <h2>
+        Search <span>Anime</span>
+      </h2>
+
+
+      <!-- =========================
+           SEARCH BOX
+      ========================= -->
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search your favorite anime..."
+          autocomplete="off"
+        >
+
+        <button
+          id="search-btn"
+          type="button"
+          aria-label="Search"
+        >
+          🔍
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           ADVANCED SEARCH FILTERS
+      ========================= -->
+
+      <div class="search-filters">
+
+
+        <!-- GENRE -->
+
+        <div class="filter-group">
+
+          <label for="genre-filter">
+            Genre
+          </label>
+
+          <select id="genre-filter">
+
+            <option value="all">
+              All Genres
+            </option>
+
+            <option value="action">
+              Action
+            </option>
+
+            <option value="adventure">
+              Adventure
+            </option>
+
+            <option value="comedy">
+              Comedy
+            </option>
+
+            <option value="drama">
+              Drama
+            </option>
+
+            <option value="fantasy">
+              Fantasy
+            </option>
+
+            <option value="horror">
+              Horror
+            </option>
+
+            <option value="romance">
+              Romance
+            </option>
+
+            <option value="school">
+              School
+            </option>
+
+            <option value="sci-fi">
+              Sci-Fi
+            </option>
+
+            <option value="sports">
+              Sports
+            </option>
+
+            <option value="supernatural">
+              Supernatural
+            </option>
+
+            <option value="thriller">
+              Thriller
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- TYPE -->
+
+        <div class="filter-group">
+
+          <label for="type-filter">
+            Type
+          </label>
+
+          <select id="type-filter">
+
+            <option value="all">
+              All Types
+            </option>
+
+            <option value="tv">
+              TV
+            </option>
+
+            <option value="movie">
+              Movie
+            </option>
+
+            <option value="ova">
+              OVA
+            </option>
+
+            <option value="special">
+              Special
+            </option>
+
+            <option value="ona">
+              ONA
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- SCORE -->
+
+        <div class="filter-group">
+
+          <label for="score-filter">
+            Minimum Score
+          </label>
+
+          <select id="score-filter">
+
+            <option value="0">
+              Any Score
+            </option>
+
+            <option value="7">
+              7+
+            </option>
+
+            <option value="8">
+              8+
+            </option>
+
+            <option value="9">
+              9+
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- SORT -->
+
+        <div class="filter-group">
+
+          <label for="sort-filter">
+            Sort By
+          </label>
+
+          <select id="sort-filter">
+
+            <option value="relevance">
+              Relevance
+            </option>
+
+            <option value="score">
+              Highest Score
+            </option>
+
+            <option value="newest">
+              Newest
+            </option>
+
+            <option value="oldest">
+              Oldest
+            </option>
+
+            <option value="az">
+              A → Z
+            </option>
+
+            <option value="za">
+              Z → A
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           RESET FILTERS
+      ========================= -->
+
+      <button
+        class="reset-filters"
+        id="reset-filters"
+        type="button"
+      >
+        ↻ Reset Filters
+      </button>
+
+
+      <!-- =========================
+           SEARCH STATUS
+      ========================= -->
+
+      <div
+        class="search-status"
+        id="search-status"
+      ></div>
+
+
+      <!-- =========================
+           SEARCH RESULTS
+      ========================= -->
+
+      <div
+        class="search-results"
+        id="search-results"
+      ></div>
+
+
+      <!-- =========================
+           LOAD MORE
+      ========================= -->
+
+      <button
+        class="load-more-btn"
+        id="load-more-btn"
+        type="button"
+        hidden
+      >
+        Load More
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <header class="navbar">
+
+    <div class="brand">
+
+      <div class="brand-icon">
+        I
+      </div>
+
+      <div class="brand-name">
+        ITSUKI
+        <span>ANIMES</span>
+      </div>
+
+    </div>
+
+
+    <nav class="desktop-nav">
+
+      <a href="#" class="active">
+        Home
+      </a>
+
+      <a href="#trending">
+        Trending
+      </a>
+
+      <a href="#popular">
+        Popular
+      </a>
+
+      <a href="#new">
+        New
+      </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+      <button
+        class="icon-btn"
+        id="open-search"
+        type="button"
+        aria-label="Open Search"
+      >
+        🔍
+      </button>
+
+      <button
+        class="menu-btn"
+        type="button"
+        aria-label="Open Menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MOBILE MENU
+  ========================= -->
+
+  <div
+    class="mobile-menu-overlay"
+    id="mobile-menu-overlay"
+  ></div>
+
+
+  <aside
+    class="mobile-menu"
+    id="mobile-menu"
+  >
+
+    <div class="mobile-menu-header">
+
+      <div class="brand">
+
+        <div class="brand-icon">
+          I
+        </div>
+
+        <div class="brand-name">
+          ITSUKI
+          <span>ANIMES</span>
+        </div>
+
+      </div>
+
+
+      <button
+        class="mobile-menu-close"
+        id="mobile-menu-close"
+        type="button"
+        aria-label="Close Menu"
+      >
+        ✕
+      </button>
+
+    </div>
+
+
+    <nav class="mobile-nav">
+
+      <a
+        href="#"
+        class="mobile-nav-link active"
+      >
+        🏠 <span>Home</span>
+      </a>
+
+      <a
+        href="#trending"
+        class="mobile-nav-link"
+      >
+        🔥 <span>Trending</span>
+      </a>
+
+      <a
+        href="#popular"
+        class="mobile-nav-link"
+      >
+        ⭐ <span>Popular</span>
+      </a>
+
+      <a
+        href="#new"
+        class="mobile-nav-link"
+      >
+        🆕 <span>New Releases</span>
+      </a>
+
+      <a
+        href="my-list.html"
+        class="mobile-nav-link"
+      >
+        ❤️ <span>My List</span>
+      </a>
+
+    </nav>
+
+
+    <div class="mobile-menu-divider"></div>
+
+
+    <button
+      class="mobile-search-btn"
+      id="mobile-search-btn"
+      type="button"
+    >
+      🔍 <span>Search Anime</span>
+    </button>
+
+
+    <div class="mobile-menu-footer">
+
+      <span>
+        MISSION ITSUKI
+      </span>
+
+      <span>
+        🚀
+      </span>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================= -->
+
+  <main>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+      <div
+        class="hero-background"
+        id="hero-background"
+      ></div>
+
+      <div class="hero-gradient"></div>
+
+
+      <div class="hero-content">
+
+        <div
+          class="featured-label"
+          id="hero-label"
+        >
+          ✦ FEATURED TODAY
+        </div>
+
+
+        <h1 id="hero-title">
+
+          ENTER THE WORLD
+
+          <span>
+            OF ANIME
+          </span>
+
+        </h1>
+
+
+        <p
+          class="hero-text"
+          id="hero-text"
+        >
+          Discover unforgettable stories,
+          legendary characters,
+          and your next favorite anime.
+        </p>
+
+
+        <div class="hero-meta">
+
+          <span id="hero-score">
+            ⭐ 9.2
+          </span>
+
+          <span>
+            •
+          </span>
+
+          <span id="hero-type">
+            TV Series
+          </span>
+
+          <span>
+            •
+          </span>
+
+          <span id="hero-year">
+            2026
+          </span>
+
+        </div>
+
+
+        <div class="hero-buttons">
+
+          <button
+            class="watch-btn"
+            id="hero-watch-btn"
+            type="button"
+          >
+            ▶ Explore Now
+          </button>
+
+
+          <button
+            class="info-btn"
+            id="hero-info-btn"
+            type="button"
+          >
+            ℹ Learn More
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="scroll-indicator">
+
+        <span>
+          SCROLL TO EXPLORE
+        </span>
+
+        <div class="scroll-line"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRENDING
+    ========================= -->
+
+    <section
+      class="content-section"
+      id="trending"
+    >
+
+      <div class="section-top">
+
+        <div>
+
+          <p class="section-tag">
+            DISCOVER
+          </p>
+
+          <h2>
+            Trending <span>Now</span>
+          </h2>
+
+        </div>
+
+
+        <button
+          class="view-btn"
+          type="button"
+          data-category="trending"
+        >
+          View All →
+        </button>
+
+      </div>
+
+
+      <div
+        class="anime-row"
+        id="trending-grid"
+      >
+        <p>
+          Loading anime...
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         POPULAR
+    ========================= -->
+
+    <section
+      class="content-section"
+      id="popular"
+    >
+
+      <div class="section-top">
+
+        <div>
+
+          <p class="section-tag">
+            FAN FAVORITES
+          </p>
+
+          <h2>
+            Popular <span>Anime</span>
+          </h2>
+
+        </div>
+
+
+        <button
+          class="view-btn"
+          type="button"
+          data-category="popular"
+        >
+          View All →
+        </button>
+
+      </div>
+
+
+      <div
+        class="anime-row"
+        id="popular-grid"
+      >
+        <p>
+          Loading anime...
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         NEW RELEASES
+    ========================= -->
+
+    <section
+      class="content-section"
+      id="new"
+    >
+
+      <div class="section-top">
+
+        <div>
+
+          <p class="section-tag">
+            JUST ARRIVED
+          </p>
+
+          <h2>
+            New <span>Releases</span>
+          </h2>
+
+        </div>
+
+
+        <button
+          class="view-btn"
+          type="button"
+          data-category="new"
+        >
+          View All →
+        </button>
+
+      </div>
+
+
+      <div
+        class="anime-row"
+        id="new-grid"
+      >
+        <p>
+          Loading anime...
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer class="footer">
+
+    <div class="footer-brand">
+
+      <div class="brand">
+
+        <div class="brand-icon">
+          I
+        </div>
+
+        <div class="brand-name">
+          ITSUKI
+          <span>ANIMES</span>
+        </div>
+
+      </div>
+
+
+      <p>
+        Your gateway to the world of anime.
+      </p>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 ITSUKI ANIMES
+      </span>
+
+      <span>
+        MISSION ITSUKI 🚀
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>

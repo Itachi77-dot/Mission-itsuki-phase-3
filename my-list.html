@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>My List — ITSUKI ANIMES</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       BACKGROUND
+  ====================================================== -->
+
+  <div class="bg-glow glow-one"></div>
+
+  <div class="bg-glow glow-two"></div>
+
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+
+  <header class="navbar">
+
+    <div class="brand">
+
+      <div class="brand-icon">
+        I
+      </div>
+
+      <div class="brand-name">
+
+        ITSUKI
+
+        <span>
+          ANIMES
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="index.html"
+      class="back-btn"
+    >
+      ← Back Home
+    </a>
+
+  </header>
+
+
+  <!-- =====================================================
+       MY LIST PAGE
+  ====================================================== -->
+
+  <main class="mylist-page">
+
+
+    <!-- ===================================================
+         HEADER
+    ==================================================== -->
+
+    <section class="mylist-header">
+
+      <p class="section-tag">
+        YOUR COLLECTION
+      </p>
+
+
+      <h1>
+        My <span>List</span> ❤️
+      </h1>
+
+
+      <p class="mylist-subtitle">
+        Your favorite anime, all in one place.
+      </p>
+
+
+      <!-- ITEM COUNT -->
+
+      <div
+        id="mylist-count"
+        class="mylist-count"
+      >
+        0 Anime
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         CONTROLS
+    ==================================================== -->
+
+    <section
+      class="mylist-controls"
+      aria-label="My List controls"
+    >
+
+
+      <!-- SEARCH -->
+
+      <div class="mylist-search">
+
+        <span class="search-icon">
+          🔍
+        </span>
+
+        <input
+          id="mylist-search"
+          type="search"
+          placeholder="Search your anime..."
+          autocomplete="off"
+          aria-label="Search your My List"
+        >
+
+      </div>
+
+
+
+      <!-- SORT -->
+
+      <div class="mylist-sort">
+
+        <label
+          for="mylist-sort-select"
+          class="sort-label"
+        >
+          Sort:
+        </label>
+
+
+        <select
+          id="mylist-sort-select"
+          aria-label="Sort My List"
+        >
+
+          <option value="default">
+            Recently Added
+          </option>
+
+          <option value="name">
+            Name A-Z
+          </option>
+
+          <option value="score">
+            Highest Score
+          </option>
+
+          <option value="year">
+            Newest Year
+          </option>
+
+        </select>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         RESULT INFO
+    ==================================================== -->
+
+    <div
+      id="mylist-result-info"
+      class="mylist-result-info"
+    >
+    </div>
+
+
+
+    <!-- ===================================================
+         ANIME GRID
+    ==================================================== -->
+
+    <section
+      id="mylist-grid"
+      class="mylist-grid"
+      aria-live="polite"
+    >
+
+      <div class="mylist-loading">
+
+        <div class="loading-spinner"></div>
+
+        <p>
+          Loading your collection...
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       SCRIPT
+  ====================================================== -->
+
+  <script src="my-list.js"></script>
+
+</body>
+
+</html>
